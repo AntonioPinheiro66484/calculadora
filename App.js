@@ -6,11 +6,11 @@ export default function App() {
 
 
   function calculator() {
+    const splitNumbers = numeroAtual.split(' ')
+
+    const operator = splitNumbers[1]
     const primeiroNumero = parseFloat(splitNumbers[0])
     const ultimoNumero = parseFloat(splitNumbers[2])
-    const splitNumbers = numeroAtual.split(' ')
-    const operator = splitNumbers[1]
-
     // Faz ação referente tecla pressionada
     switch (operator) {
       //se apertar mais seleciona a função + para operação de adição
