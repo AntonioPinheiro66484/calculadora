@@ -99,11 +99,11 @@ export default function App() {
       <View style={estilo.botoes}>
 
         {botoes.map((button) =>
-          button === '=' ? // Mapeamento do botão =
+          button === '=' ? //  =
             <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[estilo.button, { backgroundColor: 'black' }]}>
               <Text style={[estilo.textoBotao, { color: "white", fontSize: 40 }]}>{button}</Text>
             </TouchableOpacity>
-            : // Mapeamento dos outros botões
+            : // botoes
             <TouchableOpacity onPress={() => handleInput(button)} key={button} style={estilo.button}>
               <Text style={[estilo.textoBotao, { color: typeof (button) === 'number' ? 'white' : 'gray' }]}>{button}</Text>
             </TouchableOpacity>
