@@ -89,13 +89,13 @@ export default function App() {
   return (
     <View style={estilo.caixa}>
 
-      {/* Area onde o resultado é exibido */}
+      {/*resultado*/}
       <View style={estilo.resultados}>
         <Text style={estilo.historico}>{ultimoNumero}</Text>
         <Text style={estilo.saida}>{numeroAtual}</Text>
       </View>
 
-      {/* Area onde os botões são exibidos*/}
+      {/*Botoes*/}
       <View style={estilo.botoes}>
 
         {botoes.map((button) =>
@@ -103,7 +103,7 @@ export default function App() {
             <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[estilo.button, { backgroundColor: 'black' }]}>
               <Text style={[estilo.textoBotao, { color: "white", fontSize: 40 }]}>{button}</Text>
             </TouchableOpacity>
-            : // botoes
+            : 
             <TouchableOpacity onPress={() => handleInput(button)} key={button} style={estilo.button}>
               <Text style={[estilo.textoBotao, { color: typeof (button) === 'number' ? 'white' : 'gray' }]}>{button}</Text>
             </TouchableOpacity>
