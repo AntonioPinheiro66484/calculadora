@@ -1,50 +1,58 @@
 import React from 'react';
 import { useState } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default function App() {
 
 
   function calculator() {
     const splitNumbers = numeroAtual.split(' ')
-
     const operator = splitNumbers[1]
     const primeiroNumero = parseFloat(splitNumbers[0])
     const ultimoNumero = parseFloat(splitNumbers[2])
+
     // Faz ação referente tecla pressionada
     switch (operator) {
       //Se apertar mais seleciona a função + para operação de adição
       case '+':
         setNumeroAtual((primeiroNumero + ultimoNumero).toString())
       return
+
       //Se apertar menos seleciona a função - para operação de subtração
       case '-':
         setNumeroAtual((primeiroNumero - ultimoNumero).toString())
       return
+
       //Se apertar asteristico seleciona a função - para operação de multiplicação
       case '*':
         setNumeroAtual((primeiroNumero * ultimoNumero).toString())
       return
+
       //Se apertar barra seleciona a função / para operação de divisão
       case '/':
         setNumeroAtual((primeiroNumero / ultimoNumero).toString())
       return
+
       //Se apertar MOD vamos calcular o modulo para saber se a divisão é exata ou não
       case 'MOD':
         setNumeroAtual((primeiroNumero % ultimoNumero).toString())
       return
+
       //Se apertar ² vamos calcular o numero escolhido elevado a ²
       case '²':
         setNumeroAtual((Math.pow(primeiroNumero,2)).toString())
       return
+
       //Se apertar ³ vamos calcular o numero escolhido elevado a ³
       case '³':
         setNumeroAtual((Math.pow(primeiroNumero,3)).toString())
       return
+
       //Se apertar ^* vamos calcular o numero escolhido elevado a ^* a qualquer numero escolhido
       case '^*':
         setNumeroAtual((Math.pow(primeiroNumero, ultimoNumero)).toString())
       return
+
     }
   }
   const [numeroAtual, setNumeroAtual] = useState("")
@@ -66,16 +74,19 @@ export default function App() {
       case 'DEL':
         setNumeroAtual(numeroAtual.substring(0, (numeroAtual.length - 1)))
       return
+
       //Se apertar Limpar o visor irá ser limpo para resetar para o padrão de inicio
       case 'LIMPAR': 
         setUltimoNumero("")
         setNumeroAtual("")
       return
+
       //Se apertar = o botão irá calcular seu resultado
       case '=':
         setUltimoNumero(numeroAtual + " = ")
         calculator()
       return
+
       //Se apertar +/- o sinal pode ser trocado ou para positivo ou para negativo
       case '+/-':
         setNumeroAtual((-1 * numeroAtual).toString())
@@ -99,7 +110,7 @@ export default function App() {
       <View style={estilo.botoes}>
 
         {botoes.map((button) =>
-          button === '=' ? //  =
+          button === '=' ? //  Calcular
             <TouchableOpacity onPress={() => handleInput(button)} key={button} style={[estilo.button, { backgroundColor: 'black' }]}>
               <Text style={[estilo.textoBotao, { color: "white", fontSize: 40 }]}>{button}</Text>
             </TouchableOpacity>
