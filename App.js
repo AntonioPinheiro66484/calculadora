@@ -13,35 +13,35 @@ export default function App() {
     const ultimoNumero = parseFloat(splitNumbers[2])
     // Faz ação referente tecla pressionada
     switch (operator) {
-      //se apertar mais seleciona a função + para operação de adição
+      //Se apertar mais seleciona a função + para operação de adição
       case '+':
         setNumeroAtual((primeiroNumero + ultimoNumero).toString())
       return
-      //se apertar menos seleciona a função - para operação de subtração
+      //Se apertar menos seleciona a função - para operação de subtração
       case '-':
         setNumeroAtual((primeiroNumero - ultimoNumero).toString())
       return
-      //se apertar asteristico seleciona a função - para operação de multiplicação
+      //Se apertar asteristico seleciona a função - para operação de multiplicação
       case '*':
         setNumeroAtual((primeiroNumero * ultimoNumero).toString())
       return
-      //se apertar barra seleciona a função / para operação de divisão
+      //Se apertar barra seleciona a função / para operação de divisão
       case '/':
         setNumeroAtual((primeiroNumero / ultimoNumero).toString())
       return
-      //se apertar MOD vamos calcular o modulo para saber se a divisão é exata ou não
+      //Se apertar MOD vamos calcular o modulo para saber se a divisão é exata ou não
       case 'MOD':
         setNumeroAtual((primeiroNumero % ultimoNumero).toString())
       return
-      //se apertar ² vamos calcular o numero escolhido elevado a ²
+      //Se apertar ² vamos calcular o numero escolhido elevado a ²
       case '²':
         setNumeroAtual((Math.pow(primeiroNumero,2)).toString())
       return
-      //se apertar ³ vamos calcular o numero escolhido elevado a ³
+      //Se apertar ³ vamos calcular o numero escolhido elevado a ³
       case '³':
         setNumeroAtual((Math.pow(primeiroNumero,3)).toString())
       return
-      //se apertar ^* vamos calcular o numero escolhido elevado a ^* a qualquer numero escolhido
+      //Se apertar ^* vamos calcular o numero escolhido elevado a ^* a qualquer numero escolhido
       case '^*':
         setNumeroAtual((Math.pow(primeiroNumero, ultimoNumero)).toString())
       return
@@ -62,21 +62,21 @@ export default function App() {
       return
     }
     switch (buttonPressed) {
-      //se apertar DEL irá deletar numero por numero e operador por operador até a posição desejada
+      //Se apertar DEL irá deletar numero por numero e operador por operador até a posição desejada
       case 'DEL':
         setNumeroAtual(numeroAtual.substring(0, (numeroAtual.length - 1)))
       return
-      //se apertar Limpar o visor irá ser limpo para resetar para o padrão de inicio
+      //Se apertar Limpar o visor irá ser limpo para resetar para o padrão de inicio
       case 'LIMPAR': 
         setUltimoNumero("")
         setNumeroAtual("")
       return
-      //se apertar = o botão irá calcular seu resultado
+      //Se apertar = o botão irá calcular seu resultado
       case '=':
         setUltimoNumero(numeroAtual + " = ")
         calculator()
       return
-      //se apertar +/- o sinal pode ser trocado ou para positivo ou para negativo
+      //Se apertar +/- o sinal pode ser trocado ou para positivo ou para negativo
       case '+/-':
         setNumeroAtual((-1 * numeroAtual).toString())
       return
@@ -89,7 +89,7 @@ export default function App() {
   return (
     <View style={estilo.caixa}>
 
-      {/*resultado*/}
+      {/*Resultado*/}
       <View style={estilo.resultados}>
         <Text style={estilo.historico}>{ultimoNumero}</Text>
         <Text style={estilo.saida}>{numeroAtual}</Text>
